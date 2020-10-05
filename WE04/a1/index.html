@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="funktionen">
+      <div class="funk_item">
+        <h3>identity_function</h3>
+        <p>
+          function identity_funktion(x) { const f = () => x; return f; } <br />
+          <button onclick="funk_item()">Lösung : </button> <div id="funk_item_lösung"></div>
+        </p>
+      </div>
+
+      <div class="funk_add">
+        <h3>addf(x)(y)</h3>
+        <p>
+          function addf(x) { const f = (y) => x + y; return f;} <br />
+          <button onclick="funk_add()">Lösung : </button>
+        <div id="funk_add_lösung"></div>
+        </p>
+      </div>
+
+      <div class="funk_applyf">
+        <h3>addf = applyf(add); addf(x)(y)</h3>
+        <p>
+          function applyf(x) { const f = (y) => (z) => x(y,z); return f; } <br />
+          <button onclick="funk_applyf()">Lösung : </button>
+        <div id="funk_applyf_lösung"></div>
+        </p>
+      </div>
+
+      <div class="funk_methodize">
+        <h3>methodize()</h3>
+        <p>function methodize(f) {x = function(y) {return f(this.valueOf(), y);}; return x;} <br />
+          <button onclick="funk_methodize()">Lösung : </button>
+        <div id="funk_methodize_lösung"></div>
+        </p>
+      </div>
+    </div>
+    <script>
+      function identity_funktion(x) { const f = () => x; return f; }
+
+      function addf(x) {
+          const f = (y) => x + y;
+          return f;
+        }
+
+      function applyf(x) {
+          const f = (y) => (z) => x(y, z);
+          return f;
+        }
+
+      function add (x,y) {
+        return x+y ;
+      }
+      function curry(f,x) {
+        const res = (y) => f(y,x);
+        return res;
+      }
+
+      function inc(x) {
+        return curry(add, 1)(x);
+      }
+
+      function methodize(f) {
+        x = function (y) {
+          return f(this.valueOf(), y);
+        };
+        return x
+      }
+
+      function demethodize(type) {
+        return (x, y) => type.call(x, y)
+      }
+
+
+
+      //////////////////////////////////////
+
+      function funk_item() {
+        var x = identity_funktion(5)
+        document.getElementById("funk_item_lösung").innerText ="var x = identity_funktion(5) --> x() --> " + x()
+      }
+
+      function funk_add() {
+        var x = addf(5);
+        document.getElementById("funk_add_lösung").innerText ="var x = addf(5) --> x(3) --> "+ x(3)
+      }
+
+      function funk_applyf() {
+        var x = applyf(add)(5)(7);
+        document.getElementById("funk_applyf_lösung").innerText = "var x = applyf(add)(5)(7)  ---> x --> "+ x
+      }
+
+      function funk_methodize() {
+        Number.prototype.add = methodize(add)
+        n = 50
+        document.getElementById("funk_methodize_lösung").innerText = "Number.prototype.add = methodize(add) --> n=50 --> n.add(12) ---> " +n.add(12)
+      }
+
+
+    </script>
+  </body>
+</html>

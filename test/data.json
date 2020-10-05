@@ -1,0 +1,45 @@
+{
+  "html": {
+    "heading": {
+      "referens": "https://www.w3schools.com/html/html_headings.asp",
+      "inhalts": [
+        {
+          "title": "HTML Headings",
+          "inhalt": "HTML headings are titles or subtitles that you want to display on a webpage."
+        },
+        {
+          "title": "Headings Are Important",
+          "inhalt": "Search engines use the headings to index the structure and content of your web pages."
+        },
+        {
+          "title": "Bigger Headings",
+          "inhalt": "Each HTML heading has a default size. However, you can specify the size for any heading with the style attribute, using the CSS font-size property"
+        }
+      ]
+    },
+    "paragraphs": {
+      "referens": "https://www.w3schools.com/html/html_paragraphs.asp",
+      "inhalts": [
+        {
+          "title": "HTML Paragraphs",
+          "inhalt": "The HTML <p> element defines a paragraph.A paragraph always starts on a new line, and browsers automatically add some white space (a margin) before and after a paragraph."
+        }
+      ]
+    },
+    "links": {},
+    "images": {},
+    "tables": {}
+  },
+  "css": {
+    "selectors": {},
+    "colors": {},
+    "boxes": {},
+    "display": {}
+  },
+  "javascript": {
+    "functions": {},
+    "objects": {},
+    "scope": {},
+    "events": {}
+  }
+}

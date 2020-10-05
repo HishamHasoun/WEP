@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Aufgabe 1</title>
+  </head>
+  <body>
+    <h1>Rednerliste</h1>
+    Neuer Redner : <input type="text" id="input_item" />
+    <button id="add_item">Hinzufügen</button>
+    <ul id="item_list"></ul>
+    <script>
+      function intervalStarter(_uhr, _current) {
+        uhr.innerText = new Date(0, 0, 0, 0, 0, current++).toLocaleTimeString();
+      }
+      const btn = document.getElementById("add_item");
+      const item_list = document.getElementById("item_list");
+      const input = document.getElementById("input_item");
+      var all_item_list = [];
+      input.focus();
+      btn.onclick = () => {
+        var current = 0;
+        var current_status = "start";
+        const item = document.createElement("div");
+        const li = document.createElement("li");
+        const name = document.createElement("h3");
+        name.innerText = input.value;
+        item.appendChild(name);
+
+        const uhr = document.createElement("div");
+        var interval;
+
+        item.appendChild(uhr);
+
+        const delete_btn = document.createElement("button");
+        delete_btn.innerText = current_status;
+        input.value = "";
+        delete_btn.onclick = (e) => {
+          if (current_status == "Stopp") {
+            clearInterval(interval);
+            current_status = "start";
+          } else {
+            current_status = "Stopp";
+
+            interval = interval = setInterval(() => {
+              uhr.innerText = new Date(
+                0,
+                0,
+                0,
+                0,
+                0,
+                current++
+              ).toLocaleTimeString();
+            }, 1000);
+          }
+          delete_btn.innerText = current_status;
+        };
+        delete_btn.click();
+        all_item_list.push(delete_btn);
+        item.appendChild(delete_btn);
+        li.appendChild(item);
+
+        document.getElementById("item_list").appendChild(li);
+      };
+    </script>
+  </body>
+</html>

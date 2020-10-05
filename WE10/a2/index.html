@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="dynamic-component-demo" class="demo">
+      <button
+        v-for="tab in tabs"
+        :key="tab"
+        :class="['tab-button', { active: currentTab === tab }]"
+        @click="currentTab = tab"
+      >
+        {{ tab }}
+      </button>
+
+      <keep-alive>
+        <component :is="currentTabComponent"> </component>
+      </keep-alive>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            currentTab: "Home",
+            tabs: ["Home", "Posts", "Archive"],
+          };
+        },
+        computed: {
+          currentTabComponent() {
+            return "tab-" + this.currentTab.toLowerCase();
+          },
+        },
+      });
+
+      app.component("tab-home", {
+        template: `<div class="demo-tab">Home component</div>`,
+      });
+      app.component("tab-posts", {
+        template: `<div class="demo-tab">Post component</div>`,
+      });
+      app.component("tab-archive", {
+        template: `<div class="demo-tab">Archive component</div>`,
+      });
+
+      app.mount("#dynamic-component-demo");
+    </script>
+  </body>
+</html>

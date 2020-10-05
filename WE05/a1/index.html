@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Aufgabe 1</title>
+  </head>
+  <body>
+    <h1>Einkaufsliste</h1>
+    Enter a new item : <input type="text" id="input_item" />
+    <button id="add_item">Add item</button>
+    <ul id="item_list"></ul>
+    <script>
+      const btn = document.getElementById("add_item");
+      const item_list = document.getElementById("item_list");
+      const input = document.getElementById("input_item");
+      input.focus();
+      btn.onclick = () => {
+        const item = document.createElement("div");
+        const li = document.createElement("li");
+        item.innerText = input.value;
+
+        const delete_btn = document.createElement("button");
+        delete_btn.innerText = "remove";
+        input.value = "";
+        delete_btn.onclick = () => {
+          item_list.removeChild(li);
+        };
+        item.appendChild(delete_btn);
+        li.appendChild(item);
+
+        document.getElementById("item_list").appendChild(li);
+      };
+    </script>
+  </body>
+</html>

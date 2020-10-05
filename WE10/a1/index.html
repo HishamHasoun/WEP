@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="components-demo">
+      <button-counter></button-counter>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+      Vue.component("button-counter", {
+        data: function () {
+          return {
+            count: 0,
+          };
+        },
+        template: `<div>
+            <button v-on:click="inc">Increment</button>
+            <button v-on:click="dec">Decrement</button>
+            <div>{{count}}</div>
+          </div>`,
+        methods: {
+          inc: function () {
+            return this.count++;
+          },
+          dec: function () {
+            return this.count--;
+          },
+        },
+      });
+
+      new Vue({ el: "#components-demo" });
+    </script>
+  </body>
+</html>

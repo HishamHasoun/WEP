@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="funktionen">
+      <div class="funk_item">
+        <h3>JavaScript-Fabrikfunktion</h3>
+        <p>var myschlange = new schlange(10) Sehe die console .....</p>
+      </div>
+    </div>
+    <script>
+      function schlange(laenge) {
+        let arr = [];
+        this.push = function (wert) {
+          arr.unshift(wert);
+        };
+
+        this.pop = function () {
+          return arr.pop();
+        };
+
+        this.print = function () {
+          console.log(arr);
+        };
+      }
+
+      var myschlange = new schlange(10);
+      myschlange.print();
+      myschlange.push(3);
+      myschlange.print();
+      myschlange.push(5);
+      myschlange.print();
+      myschlange.push(7);
+      myschlange.print();
+      console.log(myschlange.pop());
+      myschlange.print();
+      console.log(myschlange.pop());
+      myschlange.print();
+      console.log(myschlange.pop());
+      myschlange.print();
+
+      /////////////////////////////////////
+      function menge() {
+        var arr = [];
+        this.add = function (x) {
+          if (arr.filter((e) => e == x).length == 0) {
+            arr.push(x);
+          }
+        };
+
+        this.getValue = function () {
+          return arr.pop();
+        };
+
+        this.print = function () {
+          console.log(arr);
+        };
+      }
+
+      var arr = new menge();
+      arr.add(3);
+      arr.print();
+      arr.add(3);
+      arr.print();
+      arr.add(2);
+      arr.print();
+      arr.add(2);
+      arr.print();
+      arr.add(7);
+      arr.print();
+      console.log(arr.getValue());
+      arr.print();
+      console.log(arr.getValue());
+      arr.print();
+      console.log(arr.getValue());
+      arr.print();
+    </script>
+  </body>
+</html>

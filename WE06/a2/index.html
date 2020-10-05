@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Asynchrones JavaScript</title>
+  </head>
+  <body>
+    <button id="load">Load Inhalt</button>
+    <p id="inhalt"></p>
+
+    <script>
+      document.getElementById("load").onclick = async () => {
+        let for_datei_A = new Promise((res, rej) => {
+          var req = new XMLHttpRequest();
+
+          req.open("GET", "A.txt", true);
+
+          req.onload = () => {
+            if (req.status === 200) {
+              res(req.response);
+            } else {
+              rej(Error(req.statusText));
+            }
+          };
+
+          req.send();
+        });
+        let for_datei_B = new Promise((res, rej) => {
+          var req = new XMLHttpRequest();
+
+          req.open("GET", "B.txt", true);
+
+          req.onload = () => {
+            if (req.status === 200) {
+              res(req.response);
+            } else {
+              rej(Error(req.statusText));
+            }
+          };
+
+          req.send();
+        });
+
+        let datei_A = await for_datei_A;
+        let datei_B = await for_datei_B;
+
+        var inhalt = document.getElementById("inhalt");
+        let A = datei_A.split("\n");
+        let B = datei_B.split("\n");
+        let res = "";
+        let i;
+        for (i = 0; i < (A > B ? A : B).length; i++) {
+          if (A.length <= i) {
+            res += B[i] + "\n";
+            continue;
+          }
+          if (B.length <= i) {
+            res += A + "\n";
+            continue;
+          }
+
+          res += A[i] + B[i] + "\n";
+        }
+
+        inhalt.innerText = res;
+      };
+    </script>
+  </body>
+</html>

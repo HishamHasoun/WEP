@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Diagramm</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <svg id="tt" width="1000" heigth="1000" boxview="0 0 1000 1000">
+      <line
+        x1="5%"
+        y1="5%"
+        x2="95%"
+        y2="5%"
+        stroke="black"
+        stroke-width="2"
+      ></line>
+      <line
+        x1="5%"
+        y1="5%"
+        x2="5%"
+        y2="95%"
+        stroke="black"
+        stroke-width="2"
+      ></line>
+      <rect x="5%" y="20%" height="5%" style="fill: black">
+        <animate
+          id="animation1"
+          attributeName="width"
+          attributeType="XML"
+          from="0%"
+          to="170"
+          begin="0s"
+          dur="1s"
+          fill="freeze"
+        ></animate>
+      </rect>
+      <text x="220" y="23%">170</text>
+
+      <rect x="5%" y="40%" height="5%" style="fill: black">
+        <animate
+          id="animation1"
+          attributeName="width"
+          attributeType="XML"
+          from="0%"
+          to="36"
+          begin="0s"
+          dur="1s"
+          fill="freeze"
+        ></animate>
+      </rect>
+      <text x="86" y="43%">36</text>
+      <rect x="5%" y="60%" height="5%" style="fill: black">
+        <animate
+          id="animation1"
+          attributeName="width"
+          attributeType="XML"
+          from="0%"
+          to="95"
+          begin="0s"
+          dur="1s"
+          fill="freeze"
+        ></animate>
+      </rect>
+      <text x="145" y="63%">95</text>
+
+      <rect x="5%" y="80%" height="5%" style="fill: black">
+        <animate
+          id="animation1"
+          attributeName="width"
+          attributeType="XML"
+          from="0%"
+          to="120"
+          begin="0s"
+          dur="1s"
+          fill="freeze"
+        ></animate>
+      </rect>
+      <text x="170" y="83%">120</text>
+    </svg>
+
+    <script>
+      var arr = [170, 36, 95, 120];
+      const svg = document.querySelector("svg");
+
+      var y_item = 20;
+      arr.forEach((data) => {
+        var lineX = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "line"
+        );
+        lineX.setAttribute("x1", data + 50);
+        lineX.setAttribute("y1", "3%");
+        lineX.setAttribute("x2", data + 50);
+        lineX.setAttribute("y2", "6%");
+        lineX.setAttribute("stroke", "black");
+        lineX.setAttribute("stroke-width", "2");
+        svg.appendChild(lineX);
+
+        ////////////////////////////////////////////
+        var rect = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "rect"
+        );
+        rect.setAttribute("x", "5%");
+        rect.setAttribute("y", y_item + "%");
+        rect.setAttribute("heigth", "5%");
+        rect.setAttribute("style", "fill: black");
+
+        //-----------------------------------Animation
+        var animation = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "animate"
+        );
+        animation.setAttribute("id", "animation1");
+        animation.setAttribute("attributeName", "width");
+        animation.setAttribute("attributeType", "XML");
+        animation.setAttribute("from", "0%");
+        animation.setAttribute("to", data + 50);
+        animation.setAttribute("begin", "0s");
+        animation.setAttribute("dur", "1s");
+        animation.setAttribute("fill", "freeze");
+
+        rect.appendChild(animation);
+
+        svg.appendChild(rect);
+
+        y_item = y_item + 20;
+      });
+    </script>
+  </body>
+</html>

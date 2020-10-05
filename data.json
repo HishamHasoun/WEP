@@ -1,0 +1,62 @@
+{
+  "javascript": {
+    "Aufgabe 1": {
+      "title": "Funktion in JavaScript",
+      "inhalt": "Lösung",
+      "reference": "WE04/a1/index.html"
+    },
+    "Aufgabe 2": {
+      "title": "JavaScript-Objekte",
+      "inhalt": "Lösung",
+      "reference": "WE04/a2/index.html"
+    }
+  },
+  "DOM": {
+    "Aufgabe 1": {
+      "title": "Einkaufsliste ",
+      "inhalt": "Lösung",
+      "reference": "WE05/a1/index.html"
+    },
+    "Aufgabe 2": {
+      "title": "Rednerliste mit Zeitmessung ",
+      "inhalt": "Lösung",
+      "reference": "WE05/a2/index.html"
+    }
+  },
+  "Asynchrones JavaScript": {
+    "Aufgabe 1": {
+      "title": "Promises",
+      "inhalt": "Lösung",
+      "reference": "WE06/a1/index.html"
+    },
+    "Aufgabe 2": {
+      "title": "async / await ",
+      "inhalt": "Lösung",
+      "reference": "WE06/a2/index.html"
+    }
+  },
+  "SVG": {
+    "Aufgabe 1": {
+      "title": "SVG-Diagramm",
+      "inhalt": "Lösung",
+      "reference": "WE08/a1/index.html"
+    },
+    "Aufgabe 2": {
+      "title": "Statistik-Balkendiagramm in SVG",
+      "inhalt": "Lösung",
+      "reference": "WE08/a2/index.html"
+    }
+  },
+  "Vue": {
+    "Aufgabe 1": {
+      "title": "Vue Counter",
+      "inhalt": "Lösung",
+      "reference": "WE10/a1/index.html"
+    },
+    "Aufgabe 2": {
+      "title": "Vue Menu",
+      "inhalt": "Lösung",
+      "reference": "WE10/a2/index.html"
+    }
+  }
+}

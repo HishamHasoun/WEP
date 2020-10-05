@@ -1,0 +1,79 @@
+body {
+    display: flex;
+    flex-flow:row wrap;
+}
+
+.header {
+    background-color: rgb(219, 205, 205);
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.header > div {
+    background-color  :rgb(212, 193, 193);
+    text-align: center;
+    margin: 20px;
+}
+
+.header > div:hover {
+    background-color  :rgb(211, 154, 154);
+    cursor: pointer;
+}
+
+.left {
+    background-color: rgb(148, 173, 148);
+    width: 15%;
+    display: flex;
+    flex-flow: column;
+}
+
+.left > div {
+    text-align: center;
+    margin: 5px;
+}
+
+.left > div:hover {
+    background-color: rgb(107, 153, 107);
+    cursor: pointer;
+}
+
+.right {
+    background-color:  rgb(148, 173, 148);
+    width: 35%;
+}
+.article {
+    background-color: rgb(139, 139, 163);
+    width: 50%;
+}
+
+.footer {
+    background-color: rgb(14, 32, 51);
+    width: 100%;
+}
+
+
+
+@media screen and (max-width: 800px){
+    div.left {
+        width: 40%;
+    }
+
+    div.article {
+        width: 60%;
+    }
+
+    div.right {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    div.left {
+        width: 100%;
+    }
+
+    div.article {
+        width: 100%;
+    }
+}
